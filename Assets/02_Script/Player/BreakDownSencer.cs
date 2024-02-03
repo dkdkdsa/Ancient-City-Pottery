@@ -20,7 +20,7 @@ public class BreakDownSencer : MonoBehaviour
     private void HandleContacted(float fallingTime)
     {
 
-        Debug.Log(fallingTime);
+        Debug.Log($"Falling Time : {fallingTime}");
 
         if (fallingTime == 0) return;
 
