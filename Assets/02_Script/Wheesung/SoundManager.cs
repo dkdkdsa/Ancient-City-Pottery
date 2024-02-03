@@ -16,7 +16,7 @@ public enum SoundType
 public class SoundManager : MonoBehaviour
 {
 
-    private static SoundManager instance;
+    public static SoundManager instance;
     private static AudioMixer mainMixer;
 
     private AudioMixerGroup bgmMixer;

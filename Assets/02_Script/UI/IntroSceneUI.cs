@@ -10,6 +10,7 @@ public class IntroSceneUI : MonoBehaviour
     [Header("Transform")]
     [SerializeField] private Transform _button;
     [SerializeField] private Transform _works;
+    [SerializeField] private OptionUI _option;
 
     [Header("Property")]
     [SerializeField] private float _dotweenTime;
@@ -82,7 +83,10 @@ public class IntroSceneUI : MonoBehaviour
 
     public void Option()
     {
-
+        Sequence seq = DOTween.Sequence();
+        BtnFadeOut(_dotweenTime);
+        seq.AppendInterval(0.4f)
+            .AppendCallback(() => _option.StartOption());
     }
 
     public void Works()
