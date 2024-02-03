@@ -6,30 +6,36 @@ using UnityEngine;
 public class BreakDownSencer : MonoBehaviour
 {
 
-    [SerializeField] private float overPower;
+    [SerializeField] private float overTime;
     [SerializeField] private PlayerBreakController breakController;
-
-    private Rigidbody rigid;
 
     private void Awake()
     {
         
-        rigid = GetComponent<Rigidbody>();
-        GetComponent<ContactSencer>().OnContacted += HandleContacted;
+        GetComponentInChildren<ContactSencer>().OnContacted += HandleContacted;
 
     }
+
 
     private void HandleContacted(float fallingTime)
     {
 
-        var power = (Mathf.Abs(rigid.velocity.x) + Mathf.Abs(rigid.velocity.y * 5) + Mathf.Abs(rigid.velocity.z));
+        Debug.Log(fallingTime);
 
-        if(power > overPower)
+        if (fallingTime == 0) return;
+
+        if(fallingTime > overTime)
         {
 
             Destroy(gameObject);
-            Instantiate(breakController, transform.position + new Vector3(0, 0.3f), Quaternion.identity);
-            breakController.Boom();
+            Instantiate(breakController, transform.position, Quaternion.identity).Boom();
+
+            if(GameManager.Instance != null)
+            {
+
+                GameManager.Instance.OnPlayerDieEvent?.Invoke();
+
+            }
 
         }
 
