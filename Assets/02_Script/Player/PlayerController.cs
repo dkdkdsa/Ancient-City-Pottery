@@ -14,11 +14,11 @@ public class PlayerController : MonoBehaviour
     {
         
         rigid = GetComponent<Rigidbody>();
-        sencer = GetComponent<ContactSencer>();
+        sencer = GetComponentInChildren<ContactSencer>();
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
 
         Move();

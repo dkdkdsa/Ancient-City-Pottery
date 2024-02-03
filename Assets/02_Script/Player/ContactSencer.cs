@@ -24,7 +24,7 @@ public class ContactSencer : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
 
         OnContacted?.Invoke(fallingTime);
@@ -35,14 +35,14 @@ public class ContactSencer : MonoBehaviour
 
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
 
         IsContacted = true;
 
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
 
         IsContacted = false;
