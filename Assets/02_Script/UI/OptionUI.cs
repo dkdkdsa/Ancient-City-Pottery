@@ -108,7 +108,7 @@ public class OptionUI : MonoBehaviour
 
     #region VolumeControl
 
-    private void HandleSfxValueChanged(float value)
+    public void HandleSfxValueChanged(float value)
     {
 
         PlayerPrefs.SetFloat("SFX", value);
@@ -116,7 +116,7 @@ public class OptionUI : MonoBehaviour
 
     }
 
-    private void HandleBGMValueChanged(float value)
+    public void HandleBGMValueChanged(float value)
     {
 
         PlayerPrefs.SetFloat("BGM", value);
