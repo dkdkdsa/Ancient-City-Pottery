@@ -11,6 +11,7 @@ public class OptionUI : MonoBehaviour
     [Header("StartOption")]
     [SerializeField] private Image[] _sliderImg;
     [SerializeField] private Transform _option;
+    [SerializeField] private Slider _bgmSlider, _sfxSlider;
     [Header("=================================================")]
 
     [SerializeField] private Transform[] _panel;
