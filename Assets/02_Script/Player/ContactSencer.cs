@@ -6,11 +6,20 @@ using UnityEngine;
 public class ContactSencer : MonoBehaviour
 {
 
+    private Rigidbody rigid;
+
     public bool IsContacted { get; private set; }
 
     public event Action<float> OnContacted;
 
     private float fallingTime;
+
+    private void Awake()
+    {
+        
+        rigid = GetComponentInParent<Rigidbody>();
+
+    }
 
     private void Update()
     {
@@ -24,29 +33,45 @@ public class ContactSencer : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
 
         OnContacted?.Invoke(fallingTime);
 
-        fallingTime = 0;
+        if (rigid.velocity.y > -0.1f)
+        {
+
+            fallingTime = 0;
+
+        }
+
 
         IsContacted = true;
 
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnCollisionStay(Collision collision)
     {
+
+        if (rigid.velocity.y > -0.1f)
+        {
+
+            fallingTime = 0;
+
+        }
 
         IsContacted = true;
 
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision collision)
     {
+
 
         IsContacted = false;
 
     }
+
+
 
 }

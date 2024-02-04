@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,6 +22,18 @@ public class OptionUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _languageTex;
 
     [SerializeField] private float _dotTime;
+
+    private void Start()
+    {
+        _bgmSlider.value = PlayerPrefs.GetFloat("BGM", 1);
+        _sfxSlider.value = PlayerPrefs.GetFloat("SFX", 1);
+
+        _sfxSlider.onValueChanged.AddListener(HandleSfxValueChanged);
+        _bgmSlider.onValueChanged.AddListener(HandleBGMValueChanged);
+
+
+    }
+
 
 
     public void StartOption()
@@ -95,7 +108,22 @@ public class OptionUI : MonoBehaviour
 
     #region VolumeControl
 
-    //여기 채워줭
+    private void HandleSfxValueChanged(float value)
+    {
+
+        PlayerPrefs.SetFloat("SFX", value);
+        SoundManager.SetSFXVolume(value);
+
+    }
+
+    private void HandleBGMValueChanged(float value)
+    {
+
+        PlayerPrefs.SetFloat("BGM", value);
+        SoundManager.SetBGMVolume(value);
+
+    }
+
 
     #endregion
 

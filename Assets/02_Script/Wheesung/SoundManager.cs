@@ -39,6 +39,9 @@ public class SoundManager : MonoBehaviour
         sfxMixer = mainMixer.FindMatchingGroups("SFX")[0];
         bgmMixer = mainMixer.FindMatchingGroups("BGM")[0];
 
+        SetSFXVolume(PlayerPrefs.GetFloat("SFX", 1));
+        SetBGMVolume(PlayerPrefs.GetFloat("BGM", 1));
+
         DontDestroyOnLoad(gameObject);
 
     }
@@ -48,6 +51,20 @@ public class SoundManager : MonoBehaviour
 
         instance = null;
         mainMixer = null;
+
+    }
+
+    public static void SetSFXVolume(float volume)
+    {
+
+        mainMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
+
+    }
+
+    public static void SetBGMVolume(float volume)
+    {
+
+        mainMixer.SetFloat("BGM", Mathf.Log10(volume) * 20);
 
     }
 

@@ -6,9 +6,11 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private float moveSpeed;
+    [SerializeField] private AudioSource source;
 
     private Rigidbody rigid;
     private ContactSencer sencer;
+    private bool isPlaying;
 
     private void Awake()
     {
@@ -22,6 +24,37 @@ public class PlayerController : MonoBehaviour
     {
 
         Move();
+
+    }
+
+    private void Update()
+    {
+
+        ControlSound();
+
+    }
+
+    private void ControlSound()
+    {
+
+        var inputDir = new Vector3(Input.GetAxisRaw("Vertical"), 0, -Input.GetAxis("Horizontal")).normalized;
+
+        if (!isPlaying && inputDir != Vector3.zero && sencer.IsContacted)
+        {
+
+            source.Play();
+            source.loop = true;
+            isPlaying = true;
+
+        }
+        else if (isPlaying && (inputDir == Vector3.zero || !sencer.IsContacted))
+        {
+
+            source.loop = false;
+            isPlaying = false;
+
+        }
+
 
     }
 
