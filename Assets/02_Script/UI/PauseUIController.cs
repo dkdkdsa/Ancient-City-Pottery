@@ -101,6 +101,8 @@ public class PauseUIController : MonoBehaviour
     public void Continue()
     {
         Release();
+        Time.timeScale = 1;
+
     }
 
     public void Restart()

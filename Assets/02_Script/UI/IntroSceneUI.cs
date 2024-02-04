@@ -22,6 +22,9 @@ public class IntroSceneUI : MonoBehaviour
     {
         _buttonImgs = _button.GetComponentsInChildren<Image>();
         _texts = _button.GetComponentsInChildren<TextMeshProUGUI>();
+
+        Application.targetFrameRate = 144;
+
     }
 
     private void Start()
