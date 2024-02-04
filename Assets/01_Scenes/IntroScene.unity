@@ -472,7 +472,6 @@ GameObject:
   - component: {fileID: 353850995}
   - component: {fileID: 353850997}
   - component: {fileID: 353850996}
-  - component: {fileID: 353850998}
   m_Layer: 5
   m_Name: DeveloperTex
   m_TagString: Untagged
@@ -519,7 +518,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC1C\uBC1C\uC790\uB4E4"
+  m_text: DEVELOPER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33ad368f419a941408b0722c51fb8873, type: 2}
   m_sharedMaterial: {fileID: -7392975070756434150, guid: 33ad368f419a941408b0722c51fb8873, type: 2}
@@ -596,25 +595,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353850994}
   m_CullTransparentMesh: 1
---- !u!114 &353850998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353850994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1cffc17e1b60164796d00fd83b6d3f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugView: 0
-  data:
-    languageDatas:
-    - Type: 0
-      Text: "\uAC1C\uBC1C\uC790\uB4E4"
-    - Type: 1
-      Text: DEVELOPERS
 --- !u!1 &442795198
 GameObject:
   m_ObjectHideFlags: 0
