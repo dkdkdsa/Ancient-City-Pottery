@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &41246894
 RectTransform:
   m_ObjectHideFlags: 0
@@ -331,6 +331,7 @@ MonoBehaviour:
     m_Bits: 128
   clearPanel: {fileID: 41246893}
   creditText: {fileID: 1318032266}
+  creditPosY: 1750
 --- !u!4 &148443221
 Transform:
   m_ObjectHideFlags: 0
@@ -868,6 +869,120 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697646912}
   m_CullTransparentMesh: 1
+--- !u!1 &760675595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 760675596}
+  - component: {fileID: 760675597}
+  m_Layer: 0
+  m_Name: FailureSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &760675596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760675595}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &760675597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760675595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959e89a1c64bcac4dbdf03d8e1e320da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Wisesayings:
+  - languageDatas:
+    - Type: 0
+      Text: "\"\uC778\uC0DD\uC5D0\uC11C \uB9CE\uC740 \uD328\uBC30\uC5D0 \uC9C1\uBA74\uD558\uACA0\uC9C0\uB9CC
+        \uACB0\uCF54 \uD328\uBC30\uD558\uC9C0 \uB9D0\uB77C\""
+    - Type: 1
+      Text: "\"You will face many defeats in life, but never let yourself be defeated.
+        \u2013 Maya Angelou\""
+  - languageDatas:
+    - Type: 0
+      Text: "\"\uC778\uC0DD\uC5D0\uC11C \uAC00\uC7A5 \uD070 \uC601\uAD11\uC740 \uB118\uC5B4\uC9C0\uC9C0
+        \uC54A\uB294 \uAC83\uC5D0 \uC788\uB294 \uAC83\uC774 \uC544\uB2C8\uB77C \uB9E4\uBC88
+        \uC77C\uC5B4\uC120\uB2E4\uB294 \uB370 \uC788\uB2E4\""
+    - Type: 1
+      Text: '"The greatest glory in living lies not in never falling, but in rising
+        every time we fall"'
+  - languageDatas:
+    - Type: 0
+      Text: "\"\uC774\uB610\uD55C \uC9C0\uB098\uAC00\uB9AC\uB77C\""
+    - Type: 1
+      Text: '"This too shall pass"'
+  - languageDatas:
+    - Type: 0
+      Text: "\"\uC778\uC0DD\uC740 \uBD88\uACF5\uD3C9 \uD569\uB2C8\uB2E4. \uC775\uC219\uD574\uC9C0\uC138\uC694\""
+    - Type: 1
+      Text: '"Life is unfair, get used to it"'
+  - languageDatas:
+    - Type: 0
+      Text: "\"\uC778\uC0DD\uC740 \uC0B0\uC774\uB2E4. \uB2F9\uC2E0\uC758 \uBAA9\uD45C\uB294
+        \uC815\uC0C1\uC5D0 \uB3C4\uB2EC\uD558\uB294 \uAC83\uC774 \uC544\uB2C8\uB77C
+        \uB2F9\uC2E0\uC758 \uAE38\uC744 \uCC3E\uB294 \uAC83\uC774\uB2E4\""
+    - Type: 1
+      Text: '"Life is a mountain. Your goal is to find your path, not to reach the
+        top"'
+  - languageDatas:
+    - Type: 0
+      Text: "\"\uB108\uC790\uC2E0\uC744 \uBBFF\uC5B4\uB77C\""
+    - Type: 1
+      Text: '"Believe in yourself"'
+  - languageDatas:
+    - Type: 0
+      Text: "\"\uB9CC\uC57D \uB124\uAC00 \uB9AC\uC2A4\uD06C\uB97C \uBB34\uB985\uC4F0\uC9C0
+        \uC54A\uC73C\uB824\uBA74, \uC5B4\uCA54 \uC218 \uC5C6\uC774 \uD3C9\uBC94\uD568\uC5D0
+        \uC548\uC8FC\uD560 \uAC83\uC774\uB2E4\""
+    - Type: 1
+      Text: '"If you are not willing to risk the usual, you will have to settle for
+        the ordinary"'
+  - languageDatas:
+    - Type: 0
+      Text: "\"\uACE0\uD1B5\uC5C6\uC774\uB294 \uC5BB\uB294 \uAC83\uB3C4 \uC5C6\uB2E4\""
+    - Type: 1
+      Text: '"No pain no gain"'
+  - languageDatas:
+    - Type: 0
+      Text: "\"7\uBC88\uB118\uC5B4\uC838\uB3C4 8\uBC88 \uC77C\uC5B4\uB098\uB77C\""
+    - Type: 1
+      Text: '"Fall 7 times, stand up 8"'
+  - languageDatas:
+    - Type: 0
+      Text: "\"\uB54C\uB54C\uB85C, \uC62C\uBC14\uB978 \uAE38\uC774 \uAC00\uC7A5 \uC26C\uC6B4
+        \uAE38\uC774 \uC544\uB2D9\uB2C8\uB2E4\""
+    - Type: 1
+      Text: '"A mind troubled by doubt cannot focus on the course of victory"'
+  - languageDatas:
+    - Type: 0
+      Text: "\"\uACFC\uAC70\uB294 \uACFC\uAC70\uC77C \uBFD0\uC785\uB2C8\uB2E4\""
+    - Type: 1
+      Text: '"Past is just past"'
+  gameoverPanel: {fileID: 1072428947}
+  wiseText: {fileID: 1668366913}
 --- !u!1 &1072428947
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +1014,7 @@ RectTransform:
   - {fileID: 697646913}
   - {fileID: 1772715820}
   - {fileID: 1127543971}
+  - {fileID: 1668366912}
   m_Father: {fileID: 1378903330}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1530,6 +1646,141 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1668366911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1668366912}
+  - component: {fileID: 1668366914}
+  - component: {fileID: 1668366913}
+  m_Layer: 5
+  m_Name: WiseText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1668366912
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668366911}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072428948}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -449}
+  m_SizeDelta: {x: 1800, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1668366913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668366911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: '"The greatest glory in living lies not in never falling, but in rising
+    every time we fall"'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 33ad368f419a941408b0722c51fb8873, type: 2}
+  m_sharedMaterial: {fileID: -7392975070756434150, guid: 33ad368f419a941408b0722c51fb8873, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 50
+  m_fontSizeBase: 50
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1668366914
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668366911}
+  m_CullTransparentMesh: 1
 --- !u!1 &1772715819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1887,7 +2138,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 340285766}
   - {fileID: 1638902061}
-  - {fileID: 148443221}
   - {fileID: 1378903330}
   - {fileID: 647507168}
   - {fileID: 93863400}
+  - {fileID: 148443221}
+  - {fileID: 760675596}
