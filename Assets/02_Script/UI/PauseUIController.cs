@@ -2,6 +2,8 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,15 +13,27 @@ public class PauseUIController : MonoBehaviour
 
     [SerializeField] private Image bg;
     [SerializeField] private Transform panel, buttons;
+    [SerializeField] private float _dotTime;
+    [SerializeField] private OptionUI _option;
 
-    private bool isControl;
+    public bool isControl = true;
     private bool isPaused;
+
+    private Image[] _buttonImgs;
+    private TextMeshProUGUI[] _texts;
+
+    private void Awake()
+    {
+        _buttonImgs = buttons.GetComponentsInChildren<Image>();
+        _texts = buttons.GetComponentsInChildren<TextMeshProUGUI>();
+    }
 
     private void Update()
     {
         
-        if(Input.GetKeyDown(KeyCode.Escape) && !isControl)
+        if(Input.GetKeyDown(KeyCode.Escape) && isControl)
         {
+            isControl = false;
 
             if (isPaused)
             {
@@ -41,64 +55,85 @@ public class PauseUIController : MonoBehaviour
         }
 
     }
-    /// <summary>
-    /// 
-    /// </summary>
+    
     private void Release()
     {
-
         Sequence seq = DOTween.Sequence();
+        CanvasGroup canvasGroup = panel.GetComponent<CanvasGroup>();
 
-        seq.SetUpdate(true);
-        seq.Append(bg.DOFade(0, 0.3f));
-        seq.Join(panel.transform.DOLocalMoveX(-1460, 0.3f).SetEase(Ease.OutSine));
-        seq.AppendInterval(0.05f);
+        for (int imgCnt = 0; imgCnt < _buttonImgs.Length; imgCnt++)
+        {
+            seq.Append(_buttonImgs[imgCnt].DOFade(0, _dotTime))
+               .Join(_texts[imgCnt].DOFade(0, _dotTime))
+               .Join(_texts[imgCnt].transform.DOLocalMoveX(150, _dotTime))
+               .SetEase(Ease.OutSine).SetUpdate(true);
+        }
 
-        seq.Append(buttons.GetChild(0).DOLocalMoveX(-1300, 0.3f).SetEase(Ease.OutSine));
-        seq.Insert(0.5f, buttons.GetChild(1).DOLocalMoveX(-1300, 0.3f).SetEase(Ease.OutSine));
-        seq.Insert(0.6f, buttons.GetChild(2).DOLocalMoveX(-1300, 0.3f).SetEase(Ease.OutSine));
-
-        seq.AppendCallback(() => bg.gameObject.SetActive(false));
-
+        seq.AppendInterval(0.1f)
+            .AppendCallback(() => canvasGroup.DOFade(0, _dotTime).SetUpdate(true))
+            .Append(bg.DOFade(0, 0.1f))
+            .AppendCallback(() => isControl = true).SetUpdate(true);
     }
 
-    private void Control()
+    public void Control()
     {
-
         Sequence seq = DOTween.Sequence();
+        CanvasGroup canvasGroup = panel.GetComponent<CanvasGroup>();
 
-        bg.gameObject.SetActive(true);
+        seq.Append(bg.DOFade(0.7f, 0.1f))
+            .AppendCallback(() =>
+            {
+                canvasGroup.DOFade(1, _dotTime).SetUpdate(true);
+            }).SetUpdate(true);
 
-        seq.SetUpdate(true);
-        seq.Append(bg.DOFade(0.3f, 0.3f));
-        seq.Join(panel.transform.DOLocalMoveX(-456, 0.3f).SetEase(Ease.OutSine));
-        seq.AppendInterval(0.05f);
 
-        seq.Append(buttons.GetChild(0).DOLocalMoveX(-660, 0.3f).SetEase(Ease.OutSine));
-        seq.Insert(0.5f, buttons.GetChild(1).DOLocalMoveX(-660, 0.3f).SetEase(Ease.OutSine));
-        seq.Insert(0.6f, buttons.GetChild(2).DOLocalMoveX(-660, 0.3f).SetEase(Ease.OutSine));
+        for (int imgCnt = 0; imgCnt < _buttonImgs.Length; imgCnt++)
+        {
+            seq.Append(_buttonImgs[imgCnt].DOFade(0.7f, _dotTime))
+               .Join(_texts[imgCnt].DOFade(1, _dotTime))
+               .Join(_texts[imgCnt].transform.DOLocalMoveX(210, _dotTime))
+               .SetEase(Ease.OutSine).SetUpdate(true);
+        }
 
+        seq.AppendInterval(0.45f).AppendCallback(() => isControl = true).SetUpdate(true);
     }
 
     public void Continue()
     {
-
         Release();
-
     }
 
     public void Restart()
     {
+        Sequence seq = DOTween.Sequence();
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        seq.AppendCallback(() => Release())
+           .AppendInterval(1f)
+           .AppendCallback(() =>
+           {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+           }).SetUpdate(true);
 
     }
 
-    public void Exit()
+    public void Option()
     {
+        Sequence seq = DOTween.Sequence();
+        Release();
+        seq.AppendInterval(0.5f)
+            .AppendCallback(() => _option.StartOption()).SetUpdate(true);
+    }
 
-        SceneManager.LoadScene("IntroScene");
+    public void Menu()
+    {
+        Sequence seq = DOTween.Sequence();
 
+        seq.AppendCallback(() => Release())
+           .AppendInterval(1f)
+           .AppendCallback(() =>
+           {
+               SceneManager.LoadScene("IntroScene");
+           }).SetUpdate(true);
     }
 
     private void OnDestroy()

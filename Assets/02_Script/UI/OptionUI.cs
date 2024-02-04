@@ -41,14 +41,14 @@ public class OptionUI : MonoBehaviour
         Sequence seq = DOTween.Sequence();
         CanvasGroup group = GetComponent<CanvasGroup>();
         group.blocksRaycasts = true;
-        group.DOFade(1, 0.1f);
+        group.DOFade(1, 0.1f).SetUpdate(true);
         CanvasGroup optionCanvas = _option.GetComponent<CanvasGroup>();
 
         for(int i = 0; i < _sliderImg.Length; i++)
         {
-            seq.Append(_sliderImg[i].DOFade(1, 0.05f));
+            seq.Append(_sliderImg[i].DOFade(1, 0.05f)).SetUpdate(true);
         }
-        optionCanvas.DOFade(1, _dotTime);
+        optionCanvas.DOFade(1, _dotTime).SetUpdate(true);
     }
 
     #region Change Language
@@ -154,28 +154,28 @@ public class OptionUI : MonoBehaviour
             seq.AppendCallback(() =>
             {
                 soundCanvas.blocksRaycasts = false;
-                soundCanvas.DOFade(0, _dotTime);
+                soundCanvas.DOFade(0, _dotTime).SetUpdate(true);
             }).AppendInterval(_dotTime)
             .AppendCallback(() =>
             {
-                languageCanvas.DOFade(1, _dotTime);
+                languageCanvas.DOFade(1, _dotTime).SetUpdate(true);
                 languageCanvas.blocksRaycasts = true;
                 canChange = true;
-            });
+            }).SetUpdate(true);
         }
         else
         {
             seq.AppendCallback(() =>
             {
                 languageCanvas.blocksRaycasts = false;
-                languageCanvas.DOFade(0, _dotTime);
+                languageCanvas.DOFade(0, _dotTime).SetUpdate(true);
             }).AppendInterval(_dotTime)
             .AppendCallback(() =>
             {
-                soundCanvas.DOFade(1, _dotTime);
+                soundCanvas.DOFade(1, _dotTime).SetUpdate(true);
                 soundCanvas.blocksRaycasts = true;
                 canChange = true;
-            });
+            }).SetUpdate(true);
         }
 
     }
@@ -190,9 +190,9 @@ public class OptionUI : MonoBehaviour
 
         for (int i = 0; i < _sliderImg.Length; i++)
         {
-            seq.Append(_sliderImg[i].DOFade(0, 0.05f));
+            seq.Append(_sliderImg[i].DOFade(0, 0.05f)).SetUpdate(true);
         }
-        optionCanvas.DOFade(0, _dotTime);
-        group.DOFade(0, 0.5f);
+        optionCanvas.DOFade(0, _dotTime).SetUpdate(true);
+        group.DOFade(0, 0.5f).SetUpdate(true);
     }
 }
