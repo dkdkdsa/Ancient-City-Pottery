@@ -30,6 +30,8 @@ public class BreakDownSencer : MonoBehaviour
             Destroy(gameObject);
             Instantiate(breakController, transform.position, Quaternion.identity).Boom();
 
+            SoundManager.Play3DSound("Breaking", transform.position);
+
             if(GameManager.Instance != null)
             {
 
