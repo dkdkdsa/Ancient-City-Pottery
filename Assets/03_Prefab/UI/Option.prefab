@@ -721,6 +721,8 @@ MonoBehaviour:
   - {fileID: 3811419822032523026}
   - {fileID: 1012487476979413762}
   _option: {fileID: 6959065385250908163}
+  _bgmSlider: {fileID: 5796769187235084165}
+  _sfxSlider: {fileID: 36084307675106721}
   _panel:
   - {fileID: 4839942189715324603}
   - {fileID: 851314659182126836}
