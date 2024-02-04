@@ -84,6 +84,7 @@ public class PauseUIController : MonoBehaviour
     {
 
         Release();
+        Time.timeScale = 1;
 
     }
 
