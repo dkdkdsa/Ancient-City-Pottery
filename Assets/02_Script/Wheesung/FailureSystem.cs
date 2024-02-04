@@ -10,6 +10,13 @@ public class FailureSystem : MonoBehaviour
     [SerializeField] private GameObject gameoverPanel;
     [SerializeField] private TextMeshProUGUI wiseText;
 
+    private void Start()
+    {
+
+        GameManager.Instance.OnPlayerDieEvent += PopupPanel;
+
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))

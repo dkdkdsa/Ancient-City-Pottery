@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class IntroSceneUI : MonoBehaviour
@@ -80,7 +81,9 @@ public class IntroSceneUI : MonoBehaviour
            .AppendInterval(1f)
            .AppendCallback(() =>
            {
-               Debug.Log("SCENE MOVE!");
+
+               SceneManager.LoadScene("Map");
+
            });
     }
 
